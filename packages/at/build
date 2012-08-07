@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. config/options
+CFLAGS="$CFLAGS -fPIC -ll"
+CXXFLAGS="$CXXFLAGS -fPIC -ll"
+LDFLAGS="$LDFLAGS -fPIC -ll"
+
+cd $BUILD/$1*
+do_configure \
+	--with-jobdir=/var/spool/atjobs \
+	--with-atspool=/var/spool \
+	--with-etcdir=/etc \
+	--build=$HOST \
+	--host=$HOST \
+	--target=$HOST \
+	--enable-FEATURE \
+	--with-daemon_username=root \
+	--with-daemon_groupname=root
+
+make  
+make_install

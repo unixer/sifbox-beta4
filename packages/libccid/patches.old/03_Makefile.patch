@@ -1,0 +1,20 @@
+--- libccid-1.4.5/src/Makefile.in.org	2012-05-31 19:10:16.423987252 +0200
++++ libccid-1.4.5/src/Makefile.in	2012-05-31 19:10:53.833987272 +0200
+@@ -292,7 +292,7 @@
+ build_vendor = @build_vendor@
+ builddir = @builddir@
+ bundle = @bundle@
+-ccidtwindir = @ccidtwindir@
++ccidtwindir = .install
+ datadir = @datadir@
+ datarootdir = @datarootdir@
+ docdir = @docdir@
+@@ -327,7 +327,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-usbdropdir = @usbdropdir@
++usbdropdir = .install
+ CCID_BUNDLE = $(bundle)
+ CCID_LIB = libccid.$(DYN_LIB_EXT)
+ CCIDTWIN_LIB = libccidtwin.$(DYN_LIB_EXT)

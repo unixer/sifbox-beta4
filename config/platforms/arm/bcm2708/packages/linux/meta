@@ -1,0 +1,5 @@
+#PKG_URL_REV=1b3d3726a8
+PKG_URL_REV=f20f6ae0c3
+PKG_VERSION=3.1.9+${PKG_URL_REV}
+PKG_URL_PROTO=git
+PKG_URL="git://github.com/raspberrypi/linux.git"

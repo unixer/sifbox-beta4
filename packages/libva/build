@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. config/options
+
+cd $BUILD/$1*
+
+do_autoconf
+do_configure \
+  --with-drivers-path=$XORG_PATH_VAAPI \
+  --disable-dummy-driver \
+  --disable-dummy-backend \
+  --enable-glx \
+  --disable-egl \
+  --with-gnu-ld \
+  --enable-silent-rules \
+
+make
+make_install
+
+sed -i "s%^driverdir=.*%driverdir=$XORG_PATH_VAAPI%" \
+  .install/usr/lib/pkgconfig/libva.pc

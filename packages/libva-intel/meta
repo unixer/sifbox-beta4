@@ -1,0 +1,10 @@
+PKG_NAME=libva-intel
+PKG_VERSION=27719c529e1fdd61927f89b671bd62590865d4ef
+PKG_URL="http://cgit.freedesktop.org/vaapi/intel-driver/snapshot/intel-driver-${PKG_VERSION}.tar.gz"
+PKG_REV=1
+PKG_DEPENDS="$TARGET_LIBC libva libdrm"
+PKG_BUILD_DEPENDS="toolchain intel-gen4asm"
+PKG_PRIORITY=optional
+PKG_SECTION=multimedia
+PKG_SHORTDESC="VA-API backend for Intel GPUs."
+PKG_LONGDESC="VA-API backend for Intel GPUs."

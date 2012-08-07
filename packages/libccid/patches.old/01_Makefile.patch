@@ -1,0 +1,11 @@
+--- libccid-1.4.5/Makefile.in.org	2012-05-31 18:54:31.033986769 +0200
++++ libccid-1.4.5/Makefile.in	2012-05-31 18:54:49.833986777 +0200
+@@ -219,7 +219,7 @@
+ build_vendor = @build_vendor@
+ builddir = @builddir@
+ bundle = @bundle@
+-ccidtwindir = @ccidtwindir@
++ccidtwindir = .install/
+ datadir = @datadir@
+ datarootdir = @datarootdir@
+ docdir = @docdir@

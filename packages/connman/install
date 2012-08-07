@@ -1,0 +1,20 @@
+#!/bin/sh
+
+. config/options
+
+cd $BUILD/$1*
+
+do_install usr/sbin/connmand
+#do_install usr/lib/connman/plugins
+do_install usr/lib/connman/scripts
+do_install lib/systemd
+do_install etc
+
+mkdir -p $INSTALL/usr/bin
+cp $ROOT/$PACKAGES/$1/scripts/wait_fornet.sh $INSTALL/usr/bin
+
+cp -P $ROOT/$PACKAGES/$1/scripts/connman-parse-configuration \
+  $INSTALL/usr/lib/connman
+
+mkdir -p $INSTALL/lib/systemd/system/multi-user.target.wants
+ln -s ../network.target $INSTALL/lib/systemd/system/multi-user.target.wants

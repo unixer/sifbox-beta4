@@ -1,0 +1,12 @@
+#!/bin/sh
+
+. config/options
+
+cd $BUILD/$1*
+
+mkdir -p .install/include/marvell-ipp
+cp include/* .install/include/marvell-ipp
+
+mkdir -p .install/usr/lib
+cp bin/*.so* .install/usr/lib
+

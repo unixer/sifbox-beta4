@@ -1,0 +1,17 @@
+#!/bin/sh
+
+. config/options
+
+$SCRIPTS/build vdr
+
+VDR_DIR=`basename $BUILD/vdr-1*`
+
+cd $BUILD
+ln -s vdr-dvbsddevice-* dvbsddevice
+
+cd $1*
+make all \
+  VDRDIR="../$VDR_DIR" \
+  DVBDIR="../linux" \
+  LIBDIR="." \
+  LOCALEDIR="./locale"

@@ -1,0 +1,8 @@
+PKG_URL_REV=365953fb50
+#PKG_URL_REV=efef226f0a
+PKG_VERSION=rbp-git${PKG_URL_REV}
+PKG_URL_PROTO=git
+PKG_URL="git://github.com/xbmc/xbmc-rbp.git"
+#PKG_VERSION="365953f"
+#PKG_REV="1"
+#PKG_URL="http://sources.openelec.tv/devel/xbmc-rpi-365953f.tar.xz"

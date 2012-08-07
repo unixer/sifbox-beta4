@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. config/options
+
+require_cxx $1
+
+cd $BUILD/$1*
+
+setup_toolchain target
+cmake  \
+      -DCMAKE_FIND_ROOT_PATH=$LIB_PREFIX \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DCMAKE_RELEASE_TYPE=Release .
+
+make
+make_install
+[ -d .install/usr/lib32 ] && mv .install/usr/lib32 .install/usr/lib
+sed -i "s:\(['= ]\)/usr:\\1$LIB_PREFIX:g" .install/usr/bin/taglib-config

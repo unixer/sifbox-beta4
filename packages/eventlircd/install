@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. config/options
+
+cd $BUILD/$1*
+
+do_install etc/eventlircd.d
+do_install lib/udev/rules.d
+do_install usr/sbin
+
+cp $ROOT/$PACKAGES/$1/config/eventlircd.conf $INSTALL/etc
+cp $ROOT/$PACKAGES/$1/config/evmap/* $INSTALL/etc/eventlircd.d
+mkdir $INSTALL/etc/modules-load.d
+cp $ROOT/$PACKAGES/$1/modules-load.d/* $INSTALL/etc/modules-load.d

@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. config/options
+
+cd $BUILD/$1*
+
+mkdir -p .install/lib .install/include
+cp bin/*.so* .install/lib
+#ln -sf libGLESv2x.so .install/lib/libGLESv2.so
+cp -R include/* .install/include

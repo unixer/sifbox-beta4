@@ -1,0 +1,11 @@
+--- libccid-1.4.5/Makefile.in.org	2012-05-31 18:58:06.603986879 +0200
++++ libccid-1.4.5/Makefile.in	2012-05-31 18:58:18.663986885 +0200
+@@ -254,7 +254,7 @@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-usbdropdir = @usbdropdir@
++usbdropdir = .install/
+ ACLOCAL_AMFLAGS = -I m4
+ SUBDIRS = m4 readers examples contrib src
+ EXTRA_DIST = bootstrap ChangeLog SCARDGETATTRIB.txt \
