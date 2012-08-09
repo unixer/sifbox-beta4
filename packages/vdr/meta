@@ -6,7 +6,7 @@ PKG_URL="ftp://ftp.tvdr.de/vdr/Developer/vdr-${PKG_VERSION}.tar.bz2"
 
 PKG_REV=1
 PKG_BUILD_DEPENDS="toolchain linux-headers"
-PKG_RUN_DEPENDS="$TARGET_LIBC nvram-wakeup linux"
+PKG_RUN_DEPENDS="$TARGET_LIBC nvram-wakeup linux setterm"
 PKG_USE="uclibc cxx"
 PKG_DEPENDS="libjpeg-turbo freetype fontconfig gettext libcap"
 PKG_DEPENDS_uclibc="libiconv"

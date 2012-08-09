@@ -2,6 +2,8 @@
 
 . config/options
 
+export LD_LIBRARY_PATH=$SYSROOT_PREFIX/lib:$SYSROOT_PREFIX/usr/local/lib:$LD_LIBRARY_PATH
+
 get_meta $1
 cd $PKG_BUILD_DIR
 
