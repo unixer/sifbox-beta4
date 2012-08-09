@@ -1,0 +1,27 @@
+--- setterm-0.8/Makefile.org	2012-08-09 11:53:53.249444309 +0200
++++ setterm-0.8/Makefile	2012-08-09 11:54:54.539444339 +0200
+@@ -1,10 +1,10 @@
+ CC=		gcc
+ #CC=		cc
+-CFLAGS=		-pipe -O2 -Wall -Wmissing-prototypes -Wstrict-prototypes -Wcast-qual -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations -Wnested-externs -pedantic -fno-common
+-#CFLAGS=		-O2
+-#LDFLAGS=	-s -O2
+-BINDIR=		/bin
+-MANDIR=		/usr/share/man
++#CFLAGS=		-pipe -O2 -Wall -Wmissing-prototypes -Wstrict-prototypes -Wcast-qual -Wpointer-arith -Wcast-align -Wwrite-strings -Wmissing-declarations -Wnested-externs -pedantic -fno-common
++CFLAGS=		-O2
++LDFLAGS=	-s -O2
++BINDIR=		.install/bin
++MANDIR=		.install/usr/share/man
+ 
+ OBJS=		setterm.o aixterm.o linux.o vt100.o wyse60.o xterm.o xwsh.o
+ 
+@@ -14,6 +14,8 @@
+ $(OBJS):	setterm.h
+ 
+ install:	setterm
++		mkdir -p $(BINDIR)
++		mkdir -p $(MANDIR)/man1
+ 		install -c setterm $(BINDIR)/setterm
+ 		install -c -m 644 setterm.1 $(MANDIR)/man1/setterm.1
+ 
