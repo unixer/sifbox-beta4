@@ -115,7 +115,11 @@ fi
 if [ "$SOUNDCARD_MODE" = hdmi ]; then
   a=`aplay -l | grep HDMI`
   CARD_HDMI=`echo $a | cut -d: -f1`
-  DEVICE_HDMI=`echo $a | cut -d: -f2 | cut -d, -f2`
+  if [ dmesg | grep -q "NVIDIA" ] ; then
+    DEVICE_HDMI="device 7"
+  else
+    DEVICE_HDMI=`echo $a | cut -d: -f2 | cut -d, -f2`
+  fi
   echo "" > /etc/asound.conf
   echo "pcm.!default { type hw $CARD_HDMI $DEVICE_HDMI }" >> /etc/asound.conf
 else
@@ -179,6 +183,11 @@ fi
 # Required for Sony VGN-S2HRP
 if dmesg | grep -q "VGN-S2HRP" ; then
   mixer ‘External Amplifier’ 90% unmute
+fi
+
+# Required for ASUS
+if dmesg | grep -q "NVIDIA" ; then
+  amixer set -c 1 IEC958,1 unmute
 fi
 
 echo "Config :" >> /tmp/debug-sound
